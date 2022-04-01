@@ -23,8 +23,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="379dp"
+        android:layout_height="53dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="30dp"
@@ -38,8 +38,8 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="382dp"
+        android:layout_height="55dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="30dp"
@@ -53,8 +53,8 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="381dp"
+        android:layout_height="86dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
@@ -68,8 +68,8 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="57dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="30dp"
@@ -83,10 +83,10 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="381dp"
+        android:layout_height="55dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/nunito_sans"
         android:text="Если все фишки в ответе чёрные, код разгадан - вы победили."
@@ -101,6 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/nunito_sans"
         android:text="Желаем удачи и приятной игры!"
@@ -127,9 +128,10 @@
         app:strokeWidth="1dp" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
+        android:id="@+id/blueCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginStart="15dp"
         android:backgroundTint="#001AFF"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
@@ -141,14 +143,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView2"
+        android:id="@+id/redCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#FF0000"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="@+id/blueCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -156,14 +158,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView3"
+        android:id="@+id/yellowCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#FAFF00"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintStart_toEndOf="@+id/redCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -171,14 +173,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView4"
+        android:id="@+id/greenCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#00FF38"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintStart_toEndOf="@+id/yellowCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -186,14 +188,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView5"
+        android:id="@+id/pinkCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#FA00FF"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView4"
+        app:layout_constraintStart_toEndOf="@+id/greenCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -201,14 +203,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView6"
+        android:id="@+id/orangeCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#FF9900"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView5"
+        app:layout_constraintStart_toEndOf="@+id/pinkCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -216,14 +218,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView7"
+        android:id="@+id/purpleCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#7000FF"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView6"
+        app:layout_constraintStart_toEndOf="@+id/orangeCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -231,13 +233,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/skyBlueCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="9dp"
         android:backgroundTint="#00E0FF"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/cardView7"
+        app:layout_constraintStart_toEndOf="@+id/purpleCircle"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:strokeColor="#000000"
         app:strokeWidth="1dp">
@@ -245,8 +248,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/whiteCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginStart="15dp"
         android:backgroundTint="#FFFFFF"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
@@ -256,8 +261,10 @@
         app:strokeWidth="1dp" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/blackCircle"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginStart="15dp"
         android:backgroundTint="#000000"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
