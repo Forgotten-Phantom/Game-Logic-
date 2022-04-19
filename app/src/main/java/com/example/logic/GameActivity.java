@@ -3,12 +3,19 @@ package com.example.logic;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameActivity extends AppCompatActivity {
@@ -55,11 +62,15 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 1;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
@@ -68,58 +79,72 @@ public class GameActivity extends AppCompatActivity {
                     computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
-                                CardView computerAnswerCardView = new CardView(getBaseContext());
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
                                 computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
                                 computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
-                                CardView computerAnswerCardView = new CardView(getBaseContext());
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
                                 computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
                                 computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -131,50 +156,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 2;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -186,50 +250,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 3;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -241,50 +344,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 4;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -296,50 +438,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 5;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -351,50 +532,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 6;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -406,50 +626,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 7;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }
@@ -461,50 +720,89 @@ public class GameActivity extends AppCompatActivity {
                 answer[count] = 8;
                 count++;
 
-                CardView cardView = new CardView(getBaseContext());
-                cardView.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
-                cardView.setRadius(50);
-                cardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
-                secondPlayerLine.addView(cardView);
+                getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
+
+                MaterialCardView materialCardView = new MaterialCardView(getApplication());
+                materialCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                materialCardView.setRadius(50);
+                materialCardView.setStrokeColor(Color.BLACK);
+                materialCardView.setStrokeWidth(2);
+                materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
+                    computerAnswerLine.removeAllViews();
 
                     for (int j : answer) {
-                        CardView cardViewToFirstLine = new CardView(getBaseContext());
-                        cardViewToFirstLine.setRadius(50);
-                        cardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        MaterialCardView materialCardViewToFirstLine = new MaterialCardView(getApplication());
+                        materialCardViewToFirstLine.setRadius(50);
+                        materialCardViewToFirstLine.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+                        materialCardViewToFirstLine.setStrokeColor(Color.BLACK);
+                        materialCardViewToFirstLine.setStrokeWidth(2);
 
                         switch (j) {
                             case 1:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.red));
                                 break;
                             case 2:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.green));
                                 break;
                             case 3:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.orange));
                                 break;
                             case 4:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.skyBlue));
                                 break;
                             case 5:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.blue));
                                 break;
                             case 6:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.yellow));
                                 break;
                             case 7:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.pink));
                                 break;
                             case 8:
-                                cardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
+                                materialCardViewToFirstLine.setCardBackgroundColor(getBaseContext().getColor(R.color.purple));
                                 break;
                         }
 
-                        firstPlayerLine.addView(cardViewToFirstLine);
+                        firstPlayerLine.addView(materialCardViewToFirstLine);
+                    }
+
+                    for (int i = 0; i < answer.length; i++) {
+                        for (int j = 0; j < code.length; j++) {
+                            if (answer[i] == code[j] && i == j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            } else if (answer[i] == code[j] && i != j) {
+
+                                MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
+                                computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
+                                computerAnswerCardView.setRadius(25);
+                                computerAnswerCardView.setStrokeColor(Color.BLACK);
+                                computerAnswerCardView.setStrokeWidth(2);
+                                computerAnswerCardView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+
+                                computerAnswerLine.addView(computerAnswerCardView);
+                            }
+                        }
+                    }
+
+                    if (Arrays.equals(code, answer)) {
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("Code", code);
+                        startActivity(i);
                     }
                 }
             }

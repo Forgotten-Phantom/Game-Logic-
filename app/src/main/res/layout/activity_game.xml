@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/redCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -53,7 +53,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/greenCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -89,7 +89,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -111,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/orangeCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -125,7 +125,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -147,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/skyBlueCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -161,7 +161,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -183,7 +183,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/blueCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -197,7 +197,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -219,7 +219,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/yellowCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -233,7 +233,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -255,7 +255,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/pinkCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -269,7 +269,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -291,7 +291,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:backgroundTint="#7000FF"
@@ -304,7 +304,7 @@
                 app:strokeColor="#000000"
                 app:strokeWidth="1dp">
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -324,7 +324,7 @@
 
     <LinearLayout
         android:id="@+id/secondPlayerLine"
-        android:layout_width="175dp"
+        android:layout_width="190dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="45dp"
@@ -347,6 +347,8 @@
         app:layout_constraintBottom_toTopOf="@+id/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstPlayerLine"
-        app:layout_constraintTop_toBottomOf="@+id/gameName"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/gameName">
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

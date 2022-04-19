@@ -10,14 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Logic">
         <activity
+            android:name=".EndGameActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Logic"/>
+        <activity
             android:name=".GameActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.Logic"/>
         <activity
             android:name=".RulesActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.Logic"/>
         <activity
             android:name=".MenuActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Logic">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
