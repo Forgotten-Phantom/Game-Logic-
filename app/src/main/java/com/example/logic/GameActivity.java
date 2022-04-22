@@ -16,6 +16,7 @@ import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameActivity extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
     LinearLayout firstPlayerLine;
     LinearLayout secondPlayerLine;
     LinearLayout computerAnswerLine;
+    Random random = new Random();
 
     int[] code = new int[5];
     int[] answer = new int[5];
@@ -53,8 +55,11 @@ public class GameActivity extends AppCompatActivity {
         secondPlayerLine = findViewById(R.id.secondPlayerLine);
         computerAnswerLine = findViewById(R.id.computerAnswerLine);
 
-        for (int i = 0; i < 5; i++)
-            code[i] = ThreadLocalRandom.current().nextInt(1, 9);
+        for (int i = 0; i < 5; i++) {
+            while (code[i] == 0) {
+                code[i] = random.nextInt(9);
+            }
+        }
 
         red.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,8 +147,10 @@ public class GameActivity extends AppCompatActivity {
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("test", bundle);
                         startActivity(i);
                     }
                 }
@@ -237,7 +244,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -331,7 +338,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -425,7 +432,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -519,7 +526,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -613,7 +620,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -707,7 +714,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -801,7 +808,7 @@ public class GameActivity extends AppCompatActivity {
 
                     if (Arrays.equals(code, answer)) {
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("Code", code);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
