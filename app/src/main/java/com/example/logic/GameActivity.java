@@ -120,9 +120,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -133,6 +136,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -144,13 +148,15 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("test", bundle);
+                        i.putExtra("code", code);
                         startActivity(i);
                     }
                 }
@@ -216,9 +222,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -229,6 +238,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -240,9 +250,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);
@@ -310,9 +324,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -323,6 +340,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -334,9 +352,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);
@@ -404,9 +426,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -417,6 +442,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -428,9 +454,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);
@@ -498,9 +528,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -511,6 +544,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -522,9 +556,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);
@@ -592,9 +630,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -605,6 +646,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -616,9 +658,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);
@@ -686,9 +732,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -699,6 +748,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -710,9 +760,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);
@@ -780,9 +834,12 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    int count = 0;
+
                     for (int i = 0; i < answer.length; i++) {
                         for (int j = 0; j < code.length; j++) {
                             if (answer[i] == code[j] && i == j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.black));
@@ -793,6 +850,7 @@ public class GameActivity extends AppCompatActivity {
 
                                 computerAnswerLine.addView(computerAnswerCardView);
                             } else if (answer[i] == code[j] && i != j) {
+                                count++;
 
                                 MaterialCardView computerAnswerCardView = new MaterialCardView(getApplication());
                                 computerAnswerCardView.setCardBackgroundColor(getBaseContext().getColor(R.color.white));
@@ -804,9 +862,13 @@ public class GameActivity extends AppCompatActivity {
                                 computerAnswerLine.addView(computerAnswerCardView);
                             }
                         }
+                        if (count == 5)
+                            break;
                     }
 
                     if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
                         startActivity(i);

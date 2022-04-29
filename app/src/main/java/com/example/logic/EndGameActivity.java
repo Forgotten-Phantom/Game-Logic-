@@ -26,8 +26,6 @@ public class EndGameActivity extends AppCompatActivity {
         toMenu = findViewById(R.id.toMenu);
         finalCode = findViewById(R.id.finalCode);
 
-        Bundle test = getIntent().getExtras();
-
         int[] code = getIntent().getExtras().getIntArray("code");
 
         for (int j : code) {
@@ -35,8 +33,8 @@ public class EndGameActivity extends AppCompatActivity {
             getApplicationContext().getTheme().applyStyle(R.style.Base_Theme_MaterialComponents_Light, true);
 
             MaterialCardView materialCardView = new MaterialCardView(getApplication());
-            materialCardView.setRadius(100);
-            materialCardView.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+            materialCardView.setRadius(150);
+            materialCardView.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
             materialCardView.setStrokeColor(Color.BLACK);
             materialCardView.setStrokeWidth(2);
 
