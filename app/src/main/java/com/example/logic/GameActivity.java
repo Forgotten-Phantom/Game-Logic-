@@ -16,6 +16,7 @@ import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -32,7 +33,7 @@ public class GameActivity extends AppCompatActivity {
     LinearLayout firstPlayerLine;
     LinearLayout secondPlayerLine;
     LinearLayout computerAnswerLine;
-    Random random = new Random();
+    ArrayList numbers = new ArrayList();
 
     int[] code = new int[5];
     int[] answer = new int[5];
@@ -55,10 +56,14 @@ public class GameActivity extends AppCompatActivity {
         secondPlayerLine = findViewById(R.id.secondPlayerLine);
         computerAnswerLine = findViewById(R.id.computerAnswerLine);
 
+        for(int i = 0; i < 8; i++) {
+            numbers.add(i + 1);
+        }
+
+        Collections.shuffle(numbers);
+
         for (int i = 0; i < 5; i++) {
-            while (code[i] == 0) {
-                code[i] = random.nextInt(9);
-            }
+            code[i] = (int) numbers.get(i);
         }
 
         red.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +125,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -150,14 +163,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -222,6 +227,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -252,14 +265,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -324,6 +329,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -354,14 +367,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -426,6 +431,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -456,14 +469,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -528,6 +533,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -558,14 +571,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -630,6 +635,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -660,14 +673,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -732,6 +737,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -762,14 +775,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
@@ -834,6 +839,14 @@ public class GameActivity extends AppCompatActivity {
                         firstPlayerLine.addView(materialCardViewToFirstLine);
                     }
 
+                    if (Arrays.equals(code, answer)) {
+                        Bundle bundle = new Bundle();
+                        bundle.putIntArray("code", code);
+                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+                        i.putExtra("code", code);
+                        startActivity(i);
+                    }
+
                     int count = 0;
 
                     for (int i = 0; i < answer.length; i++) {
@@ -864,14 +877,6 @@ public class GameActivity extends AppCompatActivity {
                         }
                         if (count == 5)
                             break;
-                    }
-
-                    if (Arrays.equals(code, answer)) {
-                        Bundle bundle = new Bundle();
-                        bundle.putIntArray("code", code);
-                        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
-                        i.putExtra("code", code);
-                        startActivity(i);
                     }
                 }
             }
