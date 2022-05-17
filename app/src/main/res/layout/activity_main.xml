@@ -7,7 +7,7 @@
     tools:context=".MenuActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/gameNameMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
@@ -33,37 +33,37 @@
         android:textSize="69sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
 
     <Button
         android:id="@+id/start"
-        android:layout_width="189dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="111dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="140dp"
-        android:layout_marginEnd="111dp"
+        android:layout_marginEnd="30dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/nunito_sans"
         android:text="Играть"
         android:textColor="#000000"
-        android:textSize="36sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/gameNameMainMenu"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 
     <Button
         android:id="@+id/rules"
-        android:layout_width="215dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="98dp"
-        android:layout_marginEnd="98dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/nunito_sans"
         android:text="Правила"
         android:textColor="#000000"
-        android:textSize="32sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

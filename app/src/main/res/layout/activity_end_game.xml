@@ -35,35 +35,38 @@
     <LinearLayout
         android:id="@+id/finalCode"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="0dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/playAgain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/codeIsSolved"></LinearLayout>
 
     <Button
         android:id="@+id/playAgain"
-        android:layout_width="231dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="93dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/nunito_sans"
         android:text="Играть ещё раз"
         android:textColor="#000000"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/toMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finalCode"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 
     <Button
         android:id="@+id/toMenu"
-        android:layout_width="283dp"
-        android:layout_height="84dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/nunito_sans"
         android:text="На начальный экран"
@@ -72,7 +75,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playAgain"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
