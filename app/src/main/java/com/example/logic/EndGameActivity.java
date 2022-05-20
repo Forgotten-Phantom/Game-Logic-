@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -16,6 +17,7 @@ public class EndGameActivity extends AppCompatActivity {
     Button playAgain;
     Button toMenu;
     LinearLayout finalCode;
+    TextView finalStepNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,12 @@ public class EndGameActivity extends AppCompatActivity {
         playAgain = findViewById(R.id.playAgain);
         toMenu = findViewById(R.id.toMenu);
         finalCode = findViewById(R.id.finalCode);
+        finalStepNumber = findViewById(R.id.finalStepNumber);
 
         int[] code = getIntent().getExtras().getIntArray("code");
+        int step = getIntent().getExtras().getInt("step");
+
+        finalStepNumber.setText("Ходов: " + Integer.toString(step));
 
         for (int j : code) {
 

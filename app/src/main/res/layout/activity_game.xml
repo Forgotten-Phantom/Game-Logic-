@@ -310,22 +310,21 @@
 
     <LinearLayout
         android:id="@+id/firstPlayerLine"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/red"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameName">
+        app:layout_constraintTop_toBottomOf="@+id/stepNumber">
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/secondPlayerLine"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="45dp"
         android:orientation="horizontal"
@@ -337,16 +336,29 @@
 
     <LinearLayout
         android:id="@+id/computerAnswerLine"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="30dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstPlayerLine"
-        app:layout_constraintTop_toBottomOf="@+id/gameName">
+        app:layout_constraintTop_toBottomOf="@+id/stepNumber">
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/stepNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_sans"
+        android:text="Ходов: 0"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

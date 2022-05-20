@@ -33,6 +33,8 @@ public class GameActivity extends AppCompatActivity {
     LinearLayout firstPlayerLine;
     LinearLayout secondPlayerLine;
     LinearLayout computerAnswerLine;
+    int step = 0;
+    TextView stepNumber;
     ArrayList numbers = new ArrayList();
 
     int[] code = new int[5];
@@ -55,6 +57,7 @@ public class GameActivity extends AppCompatActivity {
         firstPlayerLine = findViewById(R.id.firstPlayerLine);
         secondPlayerLine = findViewById(R.id.secondPlayerLine);
         computerAnswerLine = findViewById(R.id.computerAnswerLine);
+        stepNumber = findViewById(R.id.stepNumber);
 
         for(int i = 0; i < 8; i++) {
             numbers.add(i + 1);
@@ -83,6 +86,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -128,8 +134,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -185,6 +193,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -230,8 +241,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -287,6 +300,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -332,8 +348,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -389,6 +407,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -434,8 +455,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -491,6 +514,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -536,8 +562,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -593,6 +621,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -638,8 +669,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -695,6 +728,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -740,8 +776,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
@@ -797,6 +835,9 @@ public class GameActivity extends AppCompatActivity {
                 secondPlayerLine.addView(materialCardView);
 
                 if (count > 4) {
+                    step++;
+                    stepNumber.setText("Ходов: " + Integer.toString(step));
+
                     count = 0;
                     secondPlayerLine.removeAllViews();
                     firstPlayerLine.removeAllViews();
@@ -842,8 +883,10 @@ public class GameActivity extends AppCompatActivity {
                     if (Arrays.equals(code, answer)) {
                         Bundle bundle = new Bundle();
                         bundle.putIntArray("code", code);
+                        bundle.putInt("step", step);
                         Intent i = new Intent(GameActivity.this, EndGameActivity.class);
                         i.putExtra("code", code);
+                        i.putExtra("step", step);
                         startActivity(i);
                     }
 
