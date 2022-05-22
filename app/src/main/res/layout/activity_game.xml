@@ -292,6 +292,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/purpleCircle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:backgroundTint="#7000FF"
@@ -326,6 +327,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="18dp"
         android:layout_marginBottom="45dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/red"
