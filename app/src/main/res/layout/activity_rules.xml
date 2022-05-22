@@ -16,7 +16,7 @@
         android:fontFamily="@font/nunito_sans"
         android:text="Правила"
         android:textColor="#000000"
-        android:textSize="80sp"
+        android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
